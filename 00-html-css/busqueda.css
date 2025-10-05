@@ -4,11 +4,6 @@
   box-sizing: border-box;
 }
 
-
-
-
-
-
 :root {
   --primary: #3b4550;
   --primary-dark: #0a3d66;
@@ -25,32 +20,14 @@
   --hsla-example: hsla(210, 100%, 56%, 1);
 }
 
-
-
-
-
-
-
-
-
-
 @font-face {
   font-family: 'Inter Variable';
   font-style: normal;
   font-display: swap;
   font-weight: 100 900;
   src: url(https://cdn.jsdelivr.net/fontsource/fonts/inter:vf@latest/latin-wght-normal.woff2) format('woff2-variations');
-  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-
-
-
-
-
-
-
-
-
 
 body {
   font-family: system-ui;
@@ -62,18 +39,6 @@ body {
   line-height: 1.6;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 /* Títulos principales */
 h1 {
   font-size: 2.25rem;
@@ -82,6 +47,7 @@ h1 {
   line-height: 1.2;
   text-wrap: balance;
   margin: auto 0;
+  text-align: center;
 }
 
 h1 + p {
@@ -98,12 +64,29 @@ header {
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
+  justify-content: left;
 
   h2 {
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--text-primary);
   }
+
+  div {
+    margin-left: auto;
+  }
+}
+
+header div a {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: #334155;
+  color: var(--text-primary);
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none;
+  /* TODO */
 }
 
 /* Navegación del header a otras páginas */
@@ -118,7 +101,8 @@ nav {
     transition: color 0.2s;
     font-weight: 500;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       color: var(--primary);
       outline: none;
     }
@@ -138,48 +122,85 @@ header div a {
   /* TODO */
 }
 
-/* Hero */
+
 main > section:nth-child(1) {
-  height: 500px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  margin: 5rem auto 1.5rem;
+  max-width: 70vw;
+  text-align: left;
 
-  h1 {
-    padding-top: 36px;
-  }
-
-  & > img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-    left: 0;
-    right: 0;
-    mask-image: linear-gradient(to bottom, rgba(16, 25, 34, 1) 5%, rgba(16, 25, 34, 0) 80%);
+  p {
+    text-align: center;
   }
 }
 
-/* Formulario de Búsqueda */
+div {
+  max-width: 70vw;
+  margin-left: auto;
+
+  h3 {
+    margin-bottom: 0.5rem;
+  }
+
+}
+
+#results {
+  margin: auto
+}
+
+main > div > article:first-of-type {
+  border-radius: 0.5rem 0.5rem 0 0;
+  border-top: 1px solid var(--border);  
+}
+
+main > div > article:last-of-type {
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+main > div > article {
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  border: 1px solid var(--border);
+  border-top: none;
+
+  h5 , p {
+    color: var(--text-muted);
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+  }
+
+  button{
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    background-color: var(--primary-hover);
+    color: white;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-family: inherit;
+    font-size: 1rem;
+    white-space: nowrap;
+    margin-bottom: auto;
+  }
+}
+
 form {
-  max-width: 42rem;
   width: 100%;
-  margin: 0 auto;
   padding: 0.25rem;
   border-radius: 7px;
   display: flex;
   flex-wrap: wrap;
   background-color: var(--input-bg);
-  
+
 }
+
 form svg {
   margin: auto;
 }
 
-form > div {
+form>div {
   display: flex;
   align-items: center;
   background-color: var(--input-bg);
@@ -210,7 +231,7 @@ form input[type="text"] {
 
 form input[type="text"]::placeholder {
   color: #64748b;
-  
+
 }
 
 form button[type="submit"] {
@@ -234,112 +255,45 @@ form button[type="submit"]:focus {
   outline-offset: 2px;
 }
 
-/* Features Section */
-main > section:nth-child(2) {
-  padding-inline: 1rem;
-  background-color: var(--background);
-  padding-top: 2rem;
-
-  & > header {
-    gap: 2px;
-    flex-direction: column;
-
-    h2 {
-      margin-bottom: 0;
-    }
-
-    p {
-      opacity: .75;
-    }
-  }
-
-  & > div {
-    max-width: 1280px;
-    margin: 0 auto;
-  }
+select {
+  margin: 0.7rem 0.1rem;
+  padding: 0.5rem 0.55rem;
+  border-radius: 0.2rem;
+  background-color: var(--input-bg);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-family: inherit;
+  white-space: nowrap;
 }
 
-main > section:nth-child(2) h2 {
-  font-size: 1.875rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 1rem;
-}
+#pagination {
+  margin: 2rem auto;
+  display: flex;
+  justify-content: center;
 
-main > section:nth-child(2) > div > div:first-child > p {
-  font-size: 1.125rem;
-  color: var(--text-muted);
-  max-width: 42rem;
-  margin: 0 auto;
-}
-
-/* Grid de Features */
-main > section:nth-child(2) footer {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 16px
-}
-
-/* Feature Cards */
-/* article {
-  background-color: var(--card-bg);
-  padding: 2rem;
-  margin-bottom: 16px;
-  border-radius: 0.5rem;                   
-  box-shadow: 0px 1px 3px 0 var(--shadow); 
-
-  svg {
-    color: var(--primary-light);          
-    background: rgba(0, 153, 255, 0.3);  
-    border-radius: 9999px;               
-    width: 64px;                         
-    height: 64px;                        
-    padding: 16px;                       
+  button{
+    padding: 0.5rem 1rem;
+    background-color: var(--background);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-family: inherit;
+    font-size: 1rem;
   }
 
-  h3 {
-    font-weight: 500;
-  }
-
-  p {
+  svg{
+    width: 15px;
+    height: 15px;
+    margin: auto 0.5rem;
     color: var(--text-muted);
   }
-} */
-
-/* Footer */
-footer {
-  background-color: var(--background);
-  border-top: 1px solid var(--border);
-  text-align: center;
-  padding: 16px;
-
-  small {
-    color: var(--text-muted);
-    font-size: 0.875rem;
-  }
 }
 
-article {
-  background-color: var(--card-bg);
-  padding: 2rem;
-  margin-bottom: 16px;
-  border-radius: 0.5rem;
-  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.5);
-
-  svg {
-    color: var(--primary-light);
-    background: rgba(0, 153, 255, .3);
-    width: 64px;
-    height: 64px;
-    border-radius: 100%;
-    padding: 16px;
-  }
-
-  p {
-    color: var(--text-muted);
-  }
-
-  h3 {
-    font-weight: 500;
-  }
+#pagination > button:first-of-type{
+  background-color: var(--primary-hover);
+  
+  border-radius: 0.25rem;
 }
