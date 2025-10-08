@@ -296,3 +296,16 @@ select {
   background-color: var(--primary-hover);
   border-radius: 0.25rem;
 }
+
+#boton-importante{
+  background: #09f;
+}
+
+.button-apply-job{
+  background: blue;
+
+  &.is-applied{
+    background: green;
+    pointer-events:none
+  }
+}
